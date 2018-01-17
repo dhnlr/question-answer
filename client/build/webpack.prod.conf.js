@@ -12,6 +12,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const PrerendererWebpackPlugin = require('prerenderer-webpack-plugin')
+const BrowserRenderer = PrerendererWebpackPlugin.BrowserRenderer
 const loadMinified = require('./load-minified')
 
 const env = process.env.NODE_ENV === 'testing'
@@ -35,6 +37,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
+    }),
+    new PrerendererWebpackPlugin({
+      staticDir: path.join(__dirname, '../dist'), // The path to the folder where index.html is.
+      routes: ['/'], // List of routes to prerender.
+      renderer: new BrowserRenderer({
+        // Wait to render until the element specified is detected with document.querySelector.
+        renderAfterElementExists: '#app'
+      })
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -108,7 +118,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'service-worker.js',
       staticFileGlobs: ['dist/**/*.{js,html,css}'],
       minify: true,
-      stripPrefix: 'dist/'
+      stripPrefix: 'dist/',
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/qna-api\.domain\.com\//,
+          handler: 'cacheFirst'
+        }
+      ]
     })
   ]
 })

@@ -79,7 +79,7 @@ export default {
       let _this = this
       this.isprocess = true
       if (!this.$vuelidation.errors()) {
-        this.$http.post(`http://loclahost:3000/signin`, {
+        this.$http.post(`http://localhost:3000/signin`, {
           username: this.username,
           password: this.password
         })

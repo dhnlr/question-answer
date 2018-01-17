@@ -65,7 +65,7 @@ export default {
   methods: {
     submit (id) {
       this.isprocess = true
-      this.$http.post(`http://loclahost:3000/qa/${this.routeId}/add/${id}`, {
+      this.$http.post(`http://localhost:3000/qa/${this.routeId}/add/${id}`, {
         answer: this.answerBox
       }, {headers: {
         token: this.token
@@ -77,7 +77,7 @@ export default {
         })
     },
     destroy (id) {
-      this.$http.delete(`http://loclahost:3000/qa/${this.routeId}/${id}`, {headers: {
+      this.$http.delete(`http://localhost:3000/qa/${this.routeId}/${id}`, {headers: {
         token: this.token
       }})
         .then(resp => {
@@ -85,7 +85,7 @@ export default {
         })
     },
     vote (id) {
-      this.$http.post(`http://loclahost:3000/qa/${this.routeId}/${id}/vote`, {}, {headers: {
+      this.$http.post(`http://localhost:3000/qa/${this.routeId}/${id}/vote`, {}, {headers: {
         token: this.token
       }})
         .then(resp => {
@@ -95,7 +95,7 @@ export default {
         })
     },
     top (id) {
-      this.$http.post(`http://loclahost:3000/qa/${this.routeId}/top/${id}`, {}, {headers: {
+      this.$http.post(`http://localhost:3000/qa/${this.routeId}/top/${id}`, {}, {headers: {
         token: this.token
       }})
         .then(resp => {

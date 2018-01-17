@@ -122,7 +122,7 @@ export default {
       this.isprocess = true
       if (!this.$vuelidation.errors()) {
         if (this.password === this.verifpassword) {
-          this.$http.post(`http://loclahost:3000/signup`, {
+          this.$http.post(`http://localhost:3000/signup`, {
             username: this.username,
             email: this.email,
             password: this.password
