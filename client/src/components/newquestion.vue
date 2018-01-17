@@ -84,7 +84,7 @@ export default {
       }
     },
     submit () {
-      this.$http.post(`http://loclahost:3000/qa/add`, {
+      this.$http.post(`http://localhost:3000/qa/add`, {
         title: this.newQuestion.name,
         description: this.newQuestion.desc
       }, {headers: {

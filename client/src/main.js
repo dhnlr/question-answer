@@ -12,7 +12,7 @@ Vue.use(bulma)
 Vue.use(Vuelidation)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://loclahost:3000/'
+  baseURL: 'http://localhost:3000/'
 })
 
 /* eslint-disable no-new */

@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     vote (id) {
-      this.$http.post(`http://loclahost:3000/qa/${id}/vote`, {}, {headers: {
+      this.$http.post(`http://localhost:3000/qa/${id}/vote`, {}, {headers: {
         token: this.token
       }})
         .then(resp => {

@@ -71,7 +71,7 @@ export default {
       this.newQuestion = this.newQuestionPure
     },
     submit () {
-      this.$http.put(`http://loclahost:3000/qa/${this.$route.params.question}`, {
+      this.$http.put(`http://localhost:3000/qa/${this.$route.params.question}`, {
         title: this.newQuestion.title,
         description: this.newQuestion.desc
       }, {headers: {

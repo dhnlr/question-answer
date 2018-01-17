@@ -59,7 +59,7 @@ export default {
       return (this.userId === id)
     },
     vote (id) {
-      this.$http.post(`http://loclahost:3000/qa/${id}/vote`, {}, {headers: {
+      this.$http.post(`http://localhost:3000/qa/${id}/vote`, {}, {headers: {
         token: this.token
       }})
         .then(resp => {
@@ -68,7 +68,7 @@ export default {
         })
     },
     destroy (id) {
-      this.$http.delete(`http://loclahost:3000/qa/${id}`)
+      this.$http.delete(`http://localhost:3000/qa/${id}`)
         .then(resp => {
           this.$store.dispatch('updateQuestion')
           this.$router.push({name: 'Home'})
