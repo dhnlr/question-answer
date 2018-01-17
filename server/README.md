@@ -11,7 +11,7 @@ List of auth routes:
 | /signin             | POST     | Sign user                    |
 | /signup         | POST    | Signup                    |
 
-### Auth API
+### Question and Answer API
 List of question-answer routes:
 
 |           Route        |  HTTP  |             Description               |
